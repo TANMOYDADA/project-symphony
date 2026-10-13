@@ -345,6 +345,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 footer .by{display:inline-flex;align-items:center;gap:10px}
 footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
 .dsband{position:relative;background:radial-gradient(900px 420px at 85% 30%,rgba(74,153,229,.16),transparent 60%),radial-gradient(700px 360px at 10% 90%,rgba(232,163,61,.12),transparent 60%),var(--stage-2);border-top:1px solid rgba(232,163,61,.35);border-bottom:1px solid var(--line)}
+.lead.dsband{padding:clamp(24px,4vw,44px);border-radius:20px;border:1px solid rgba(232,163,61,.35);margin-bottom:clamp(48px,6vw,72px);scroll-margin-top:90px}
 .dsband h2{font-size:clamp(32px,4vw,52px)}
 .eyebrow .dchip img{height:22px}
 </style>
@@ -375,21 +376,6 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
       <div><b>~600 kW</b><span>of homes</span></div>
       <div><b>2 MW</b><span>of business sites</span></div>
       <div><b>&lt;2 s</b><span>response to grid signals</span></div>
-    </div>
-  </section>
-
-  <section id="dersec" class="dsband" aria-labelledby="ds-h">
-    <div class="wrap lead">
-      <div class="intro">
-        <span class="dchip"><img src="data:image/webp;base64,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" alt="DERSec"></span>
-        <p class="kicker">Project lead</p>
-        <h2 id="ds-h">DERSec builds the trust layer that makes Symphony work.</h2>
-      </div>
-      <div class="intro">
-        <p>As prime recipient of the CEC award, DERSec leads the partnership and supplies DERStack, the platform every home, business site and utility system connects through.</p>
-        <div class="facts"><span>Prime recipient</span><span>Principal Investigator</span><span>IEEE 2030.5 + SunSpec PKI</span><span>DER cybersecurity</span></div>
-        <a class="btn ghost" href="#architecture" style="justify-self:start">See DERStack in the architecture</a>
-      </div>
     </div>
   </section>
 
@@ -479,6 +465,17 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
 
   <section id="architecture" aria-labelledby="arch-h">
     <div class="wrap">
+      <div id="dersec" class="lead dsband" aria-labelledby="ds-h">
+      <div class="intro">
+        <span class="dchip"><img src="data:image/webp;base64,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" alt="DERSec"></span>
+        <p class="kicker">Project lead</p>
+        <h2 id="ds-h">DERSec builds the trust layer that makes Symphony work.</h2>
+      </div>
+      <div class="intro">
+        <p>As prime recipient of the CEC award, DERSec leads the partnership and supplies DERStack, the platform every home, business site and utility system connects through.</p>
+        <div class="facts"><span>Prime recipient</span><span>Principal Investigator</span><span>IEEE 2030.5 + SunSpec PKI</span><span>DER cybersecurity</span></div>
+      </div>
+      </div>
       <div class="head"><div><p class="kicker">Solution architecture · Powered by DERStack</p><h2 id="arch-h">From a rooftop to the control room in under two seconds.</h2></div><p class="sub">Homes and business sites join through two DERSync paths and meet in DERSec's secure layer, which speaks the utility's language.</p></div>
       <div class="archbox">
         <svg viewBox="0 0 1100 470" role="img" aria-labelledby="arch-t"><title id="arch-t">Qcells homes connect through a cloud CSIP aggregator and Prologis business sites through a field CSIP gateway. Both meet in DERSec's DERStack orchestration and security layer, which connects to PG&amp;E's DERMS and GridX prices over IEEE 2030.5 with SunSpec certificates. Digital twins test every resource first, and Berkeley Lab measures the results.</title>
