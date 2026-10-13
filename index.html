@@ -223,7 +223,7 @@ blockquote footer{margin-top:14px;font:500 12px var(--mono);letter-spacing:.08em
 @media (max-width:900px){.gx{grid-template-columns:minmax(0,1fr)}}
 .gxmap{position:relative;margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#06090E}
 .gxmap svg{display:block;width:100%;height:auto;touch-action:manipulation}
-.gxmap figcaption{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:12px 16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-2);background:var(--card)}
+.gxmap figcaption{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:14px 20px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-2);background:var(--card)}
 .gxmap figcaption em{margin-left:auto;font-style:normal;color:var(--ink-3)}
 .lg i.sub{width:10px;height:10px;transform:rotate(45deg);border-radius:2px;background:#4A99E5}
 #gx-hex polygon{outline:none;stroke:#06090E;stroke-width:1;transition:fill-opacity .35s,opacity .35s;cursor:pointer}
@@ -238,21 +238,23 @@ blockquote footer{margin-top:14px;font:500 12px var(--mono);letter-spacing:.08em
 .gxtip{position:absolute;pointer-events:none;background:rgba(19,24,33,.96);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--ink);max-width:220px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
 .gxtip b{display:block;font-size:14px}
 .gxside{display:flex;flex-direction:column;gap:14px;min-width:0}
-.gxkey{padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:grid;gap:10px}
+.gxkey{padding:18px 20px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:grid;gap:10px}
 .gxkey h3{margin:0;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .gxrow{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:4px 10px;align-items:center;font-size:14px}
 .gxrow i{width:14px;height:14px;border-radius:3px}
 .gxrow b{font-variant-numeric:tabular-nums;font-size:14px}
 .gxrow s{grid-column:2/4;display:block;height:4px;border-radius:999px;background:rgba(255,255,255,.06);text-decoration:none;overflow:hidden}
 .gxrow s u{display:block;height:100%;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
-.gxnote{margin-top:auto}
-.gxfilters{display:flex;flex-wrap:wrap;gap:8px}
-.gxfilters button{font:600 13px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);cursor:pointer}
+.gxfilters{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.gxfilters button:nth-child(-n+3){grid-column:span 2}
+.gxfilters button:nth-child(n+4){grid-column:span 3}
+@media (max-width:560px){.gxfilters{grid-template-columns:1fr 1fr}.gxfilters button:nth-child(n){grid-column:auto}.gxfilters button:first-child{grid-column:1/-1}}
+.gxfilters button{font:600 13px var(--body);padding:10px 8px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);cursor:pointer}
 .gxfilters button[aria-checked="true"]{background:var(--teal);border-color:var(--teal);color:#000}
-.gxcount{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;padding:14px 20px;border-radius:14px;background:rgba(74,153,229,.12);border:1px solid rgba(74,153,229,.35)}
+.gxcount{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;padding:16px 20px;border-radius:14px;background:rgba(74,153,229,.12);border:1px solid rgba(74,153,229,.35)}
 .gxcount b{font-size:44px;font-weight:800;line-height:1;color:var(--teal);font-variant-numeric:tabular-nums;min-width:2.2ch}
 .gxcount span{font-size:15px}
-.gxcard{min-height:150px;padding:18px 20px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.gxcard{flex:1;min-height:150px;padding:18px 20px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:grid;gap:6px;align-content:start}
 .gxcard .k{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--teal)}
 .gxcard .v{font-size:30px;font-weight:800;line-height:1}
 .gxcard dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:6px 0 0;font-size:13px}
@@ -260,7 +262,7 @@ blockquote footer{margin-top:14px;font:500 12px var(--mono);letter-spacing:.08em
 .gxbar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--card)}
 .gxbar span{display:block;height:100%;transition:width 1.2s cubic-bezier(.2,.8,.2,1);width:0}
 #bar-tight{background:#E5484D}#bar-room{background:#3DD68C}#bar-eq{background:#4A99E5}#bar-other{background:#3A4352}
-.gxnote{font-size:14px;color:var(--ink-2)}
+.gxnote{margin:0;padding:16px 20px;border-radius:14px;border:1px solid var(--line);border-left:3px solid var(--teal);background:rgba(74,153,229,.06);font-size:14px;line-height:1.5;color:var(--ink-2)}
 .gxnote b{color:var(--ink)}
 
 /* benefits */
@@ -533,7 +535,7 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
 
   <section id="san-leandro" style="background:var(--stage-2)" aria-labelledby="sl-h">
     <div class="wrap">
-      <div class="head"><div><p class="kicker">Why San Leandro</p><h2 id="sl-h">On the same grid, some streets can connect. Others can't.</h2></div><p class="sub">Explore PG&amp;E's own capacity data for San Leandro. Hover or tap any area.</p></div>
+      <div class="head"><div><p class="kicker">Why San Leandro</p><h2 id="sl-h">On the same grid, some streets can connect. Others can't.</h2></div><p class="sub">PG&amp;E's own capacity data for San Leandro. Hover or tap any area.</p></div>
       <div class="gx">
         <figure class="gxmap" id="gxmap">
           <svg id="gxsvg" viewBox="0 0 700 751" role="img" aria-labelledby="gx-t"><title id="gx-t">Interactive map of San Leandro's distribution grid. Lines are colored by how much new capacity each can take; hexagonal areas show where there is room to connect, including disadvantaged communities.</title>
@@ -546,8 +548,8 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
           <div class="gxfilters" role="radiogroup" aria-label="Show areas">
             <button type="button" role="radio" aria-checked="true" data-f="all">All areas</button>
             <button type="button" role="radio" aria-checked="false" data-f="room">Room to connect</button>
-            <button type="button" role="radio" aria-checked="false" data-f="equity">Disadvantaged, with room</button>
             <button type="button" role="radio" aria-checked="false" data-f="tight">Constrained</button>
+            <button type="button" role="radio" aria-checked="false" data-f="equity">Disadvantaged, with room</button>
             <button type="button" role="radio" aria-checked="false" data-f="fire">High fire risk</button>
           </div>
           <div class="gxcount"><b id="gxn">100%</b><span id="gxl">of San Leandro mapped, area by area</span></div>
