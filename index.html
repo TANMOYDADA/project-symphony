@@ -525,18 +525,6 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
   </section>
 
 
-  <section class="sec" style="background:var(--stage)" aria-labelledby="sec-h">
-    <div class="wrap">
-      <div class="head"><div><p class="kicker">Secure by design · DERSec Sentry</p><h2 id="sec-h">One bad command can black out a building.</h2></div>
-        <button class="switch" id="protect" type="button" aria-pressed="false"><i aria-hidden="true"></i><span id="protect-l">DERSec Sentry: off</span></button></div>
-      <div class="attack" id="attack">
-        <article><span class="n">01</span><h3>Setting tampered</h3><p>A battery's trip limit is pushed out of range.</p><span class="st" data-on="Flagged instantly" data-off="Unnoticed">Unnoticed</span></article>
-        <article><span class="n">02</span><h3>Grid flickers</h3><p>An ordinary voltage blip trips the equipment.</p><span class="st" data-on="Prevented" data-off="Equipment trips">Equipment trips</span></article>
-        <article><span class="n">03</span><h3>Lights out</h3><p>On-site power and the utility link both drop.</p><span class="st" data-on="Prevented" data-off="Site goes dark">Site goes dark</span></article>
-      </div>
-    </div>
-  </section>
-
   <section id="san-leandro" style="background:var(--stage-2)" aria-labelledby="sl-h">
     <div class="wrap">
       <div class="head"><div><p class="kicker">Why San Leandro</p><h2 id="sl-h">On the same grid, some streets can connect. Others can't.</h2></div><p class="sub">Explore PG&amp;E's own capacity data for San Leandro. Hover or tap any area.</p></div>
@@ -709,10 +697,6 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
     if('IntersectionObserver' in window){new IntersectionObserver(function(es){if(es[0].isIntersecting)reveal()},{threshold:.25}).observe(mapEl);}else reveal();
     setTimeout(reveal,6000);
   })();
-
-  // Attack switch
-  var sw=document.getElementById('protect'),at=document.getElementById('attack');
-  sw.onclick=function(){var on=sw.getAttribute('aria-pressed')!=='true';sw.setAttribute('aria-pressed',on);at.classList.toggle('on',on);document.getElementById('protect-l').textContent='DERSec Sentry: '+(on?'on':'off');at.querySelectorAll('.st').forEach(function(s){s.textContent=on?s.dataset.on:s.dataset.off});};
 
   // Partner filter
   var fb=[].slice.call(document.querySelectorAll('.legend button')),logos=[].slice.call(document.querySelectorAll('.logo'));
