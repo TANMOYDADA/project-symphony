@@ -543,7 +543,7 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
             <button type="button" role="radio" aria-checked="false" data-f="tight">Constrained</button>
             <button type="button" role="radio" aria-checked="false" data-f="fire">High fire risk</button>
           </div>
-          <div class="gxcount"><b id="gxn">343</b><span id="gxl">areas mapped across San Leandro</span></div>
+          <div class="gxcount"><b id="gxn">100%</b><span id="gxl">of San Leandro mapped, area by area</span></div>
           <div class="gxkey"><h3>What the areas show</h3><div id="gxrows"></div></div>
           <div class="gxcard" id="gxcard" aria-live="polite"><span class="k">Area detail</span><p class="muted" style="margin:0">Tap any hexagon on the map to see how much room it has, what limits it, and whether it is a disadvantaged community.</p></div>
                     <p class="gxnote"><b>62%</b> of San Leandro's areas are constrained today. Coordinating homes and businesses behind each substation is how Project Symphony opens room.</p>
@@ -674,12 +674,12 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
       var last=performance.now();(function tick(now){var dt=(now-last)/1000;last=now;dots.forEach(function(d){d.t=(d.t+d.v*dt)%1;var pt=d.p.getPointAtLength(d.t*d.L);d.c.setAttribute('cx',pt.x);d.c.setAttribute('cy',pt.y);});requestAnimationFrame(tick)})(last);}
     // counts and bar
     var cnt={c:0,g:0,e:0,f:0,n:0};D.hex.forEach(function(h){cnt[h[2]]++});var N=D.hex.length;
-    var rowsEl=document.getElementById('gxrows');[['c','Constrained'],['g','Room to connect'],['e','Disadvantaged, with room'],['f','High fire risk: on hold'],['n','No data']].forEach(function(r){if(!cnt[r[0]])return;rowsEl.insertAdjacentHTML('beforeend','<div class="gxrow"><i style="background:'+col[r[0]]+'"></i><span>'+r[1]+'</span><b>'+cnt[r[0]]+'</b><s><u data-w="'+(cnt[r[0]]/N*100)+'" style="background:'+col[r[0]]+'"></u></s></div>');});
+    var rowsEl=document.getElementById('gxrows');[['c','Constrained'],['g','Room to connect'],['e','Disadvantaged, with room'],['f','High fire risk: on hold'],['n','No data']].forEach(function(r){if(!cnt[r[0]])return;rowsEl.insertAdjacentHTML('beforeend','<div class="gxrow"><i style="background:'+col[r[0]]+'"></i><span>'+r[1]+'</span><b>'+Math.round(cnt[r[0]]/N*100)+'%</b><s><u data-w="'+(cnt[r[0]]/N*100)+'" style="background:'+col[r[0]]+'"></u></s></div>');});
     function bars(){rowsEl.querySelectorAll('u').forEach(function(u){u.style.width=u.dataset.w+'%'});}
     if(reduce)bars();
     var nEl=document.getElementById('gxn'),lEl=document.getElementById('gxl');
-    function countTo(v){var from=+nEl.textContent||0,t0=performance.now();(function step(t){var k=Math.min(1,(t-t0)/600);nEl.textContent=Math.round(from+(v-from)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)})(t0);}
-    var F={all:[null,'areas mapped across San Leandro'],room:[['g','e'],'areas with room to connect'],equity:[['e'],'disadvantaged areas that still have room'],tight:[['c'],'areas where the grid is already constrained'],fire:[['f'],'high fire-risk areas on hold']};
+    function countTo(v){v=Math.round(v/N*100);var from=parseInt(nEl.textContent,10)||0,t0=performance.now();(function step(t){var k=Math.min(1,(t-t0)/600);nEl.textContent=Math.round(from+(v-from)*(1-Math.pow(1-k,3)))+'%';if(k<1)requestAnimationFrame(step)})(t0);}
+    var F={all:[null,'of San Leandro mapped, area by area'],room:[['g','e'],'of areas have room to connect'],equity:[['e'],'of areas are disadvantaged and still have room'],tight:[['c'],'of areas are already constrained'],fire:[['f'],'of areas are high fire risk, on hold']};
     document.querySelectorAll('.gxfilters button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.gxfilters button').forEach(function(x){x.setAttribute('aria-checked',x===b)});var f=F[b.dataset.f],n=0;
       hexEls.forEach(function(el,i){var on=!f[0]||f[0].indexOf(D.hex[i][2])>-1;el.classList.toggle('off',!on);el.setAttribute('fill-opacity',on&&f[0]?'.6':'.32');if(on)n++;});countTo(n);lEl.textContent=f[1];});});
     // hover / tap detail
