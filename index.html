@@ -303,6 +303,16 @@ blockquote footer{margin-top:14px;font:500 12px var(--mono);letter-spacing:.08em
 .join::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,1) 35%,rgba(0,0,0,.55) 100%)}
 .join .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
 @media (max-width:860px){.join .wrap{grid-template-columns:minmax(0,1fr)}}
+.cmte{display:grid;gap:12px}
+.cmte button{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:16px;row-gap:4px;text-align:left;padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:rgba(19,24,33,.88);color:var(--ink);font:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.cmte button:hover{border-color:var(--teal-2)}
+.cmte button[aria-checked="true"]{border-color:var(--teal);background:rgba(74,153,229,.12);box-shadow:0 0 0 1px var(--teal) inset}
+.cmte .ic{grid-row:1/4;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(74,153,229,.14)}
+.cmte .ic svg{width:24px;height:24px;fill:none;stroke:var(--teal-2);stroke-width:1.8;stroke-linecap:round}
+.cmte b{font-size:18px;font-weight:700}
+.cmte span:not(.ic){font-size:14px;color:var(--ink-2)}
+.cmte em{font-style:normal;font-size:14px;color:var(--teal-2)}
+@media (max-width:900px){.join .wrap{grid-template-columns:minmax(0,1fr)}}
 form{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 form label{position:absolute;left:-9999px}
 input{flex:1 1 220px;min-width:0;font:16px var(--body);padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.8);color:var(--ink)}
@@ -605,10 +615,25 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
   <section id="join" class="join" aria-labelledby="j-h">
     <div class="wrap">
       <div>
-        <p class="kicker">Join the DERSec-led partnership</p>
+        <p class="kicker">Advisory committees</p>
         <h2 id="j-h" style="margin-top:12px">There's a seat at the table for you.</h2>
-        <form id="f" novalidate><label for="email">Email address</label><input id="email" type="email" placeholder="Get project updates: you@example.org" autocomplete="email"><button class="btn solid" type="submit">Subscribe</button></form>
+        <p class="sub" style="margin-top:12px">Two committees will guide Project Symphony. Pick one and leave your email to express interest.</p>
+        <form id="f" novalidate><label for="email">Email address</label><input id="email" type="email" placeholder="you@example.org" autocomplete="email"><button class="btn solid" type="submit">Express interest</button></form>
         <p class="msg" id="msg" role="status"></p>
+      </div>
+      <div class="cmte" role="radiogroup" aria-label="Choose a committee">
+        <button type="button" role="radio" aria-checked="true" data-c="Technical Advisory Committee">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <b>Technical Advisory Committee</b>
+          <span>Utilities, regulators, standards bodies, researchers and manufacturers.</span>
+          <em>Guides interoperability, cybersecurity, grid services and measurement.</em>
+        </button>
+        <button type="button" role="radio" aria-checked="false" data-c="Community Advisory Committee">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span>
+          <b>Community Advisory Committee</b>
+          <span>Residents, community groups, schools and local businesses.</span>
+          <em>Shapes outreach, equity and how benefits reach San Leandro.</em>
+        </button>
       </div>
     </div>
   </section>
@@ -696,6 +721,8 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
   })();
 
   // Sign-up
-  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var v=document.getElementById('email').value.trim(),m=document.getElementById('msg');m.textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'Sign-ups open at launch. This preview doesn’t store your address yet.':'Enter a full email address, like name@example.org.';});
+  var cm='Technical Advisory Committee',cb=[].slice.call(document.querySelectorAll('.cmte button'));
+  cb.forEach(function(b){b.onclick=function(){cb.forEach(function(x){x.setAttribute('aria-checked',x===b)});cm=b.dataset.c;document.getElementById('msg').textContent='';};});
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var v=document.getElementById('email').value.trim(),m=document.getElementById('msg');m.textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'Thanks. Interest in the '+cm+' opens at launch; this preview doesn’t store your address yet.':'Enter a full email address, like name@example.org.';});
 })();
 </script>
