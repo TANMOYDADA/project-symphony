@@ -303,11 +303,6 @@ blockquote footer{margin-top:14px;font:500 12px var(--mono);letter-spacing:.08em
 .join::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,1) 35%,rgba(0,0,0,.55) 100%)}
 .join .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
 @media (max-width:860px){.join .wrap{grid-template-columns:minmax(0,1fr)}}
-.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.paths a{display:grid;gap:2px;padding:16px 18px;border-radius:14px;background:rgba(22,36,59,.85);border:1px solid var(--line);text-decoration:none;transition:border-color .2s}
-.paths a:hover{border-color:var(--teal)}
-.paths b{font-family:var(--display);font-size:16px}
-.paths span{font-size:13px;color:var(--teal-2)}
 form{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 form label{position:absolute;left:-9999px}
 input{flex:1 1 220px;min-width:0;font:16px var(--body);padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.8);color:var(--ink)}
@@ -614,12 +609,6 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
         <h2 id="j-h" style="margin-top:12px">There's a seat at the table for you.</h2>
         <form id="f" novalidate><label for="email">Email address</label><input id="email" type="email" placeholder="Get project updates: you@example.org" autocomplete="email"><button class="btn solid" type="submit">Subscribe</button></form>
         <p class="msg" id="msg" role="status"></p>
-      </div>
-      <div class="paths">
-        <a href="#f"><b>Partner with DERSec</b><span>Bring DERStack to your grid →</span></a>
-        <a href="#f"><b>Utilities and CCAs</b><span>Shape the shared model →</span></a>
-        <a href="#f"><b>Asset owners</b><span>Become a demo partner →</span></a>
-        <a href="#f"><b>Residents</b><span>See what it means locally →</span></a>
       </div>
     </div>
   </section>
