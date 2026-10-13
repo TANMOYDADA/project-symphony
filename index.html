@@ -320,7 +320,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .links a{white-space:nowrap}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;margin:0 0 20px;padding:6px 14px 6px 6px;border:1px solid rgba(232,163,61,.45);border-radius:999px;background:rgba(232,163,61,.08);font-size:13px;font-weight:600;color:var(--ink)}
 .eyebrow b{color:var(--amber);font-weight:700}
-.lead{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.lead{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:end}
 @media (max-width:900px){.lead{grid-template-columns:minmax(0,1fr)}}
 .lead .intro{display:grid;gap:16px;align-content:start}
 .lead .intro .dchip{justify-self:start;padding:12px 18px;border-radius:12px}.lead .intro .dchip img{height:38px}
@@ -328,11 +328,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .lead .intro p{margin:0;color:var(--ink-2);font-size:17px}
 .lead .facts{display:flex;flex-wrap:wrap;gap:8px}
 .lead .facts span{font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
-.stack{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:18px;border-radius:20px;border:1px solid var(--teal);background:linear-gradient(160deg,rgba(74,153,229,.14),rgba(74,153,229,.02))}
+.stack{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:18px;border-radius:20px;border:1px solid var(--teal);background:linear-gradient(160deg,rgba(74,153,229,.14),rgba(74,153,229,.02))}
+@media (max-width:1000px){.stack{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.stack{grid-template-columns:minmax(0,1fr)}}
 .stack > h3{grid-column:1/-1;margin:0;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-2)}
 .stack > h3 small{font-size:12px;letter-spacing:0;text-transform:none;color:var(--ink-3);font-weight:500}
-.stack article{position:relative;padding:18px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:grid;gap:6px;overflow:hidden;transition:border-color .3s,transform .3s}
+.stack article{position:relative;padding:18px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:grid;gap:6px;align-content:start;overflow:hidden;transition:border-color .3s,transform .3s}
 .stack article:hover{border-color:var(--teal);transform:translateY(-2px)}
 .stack article::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--teal),var(--amber))}
 .stack h4{margin:0;font-size:18px;font-weight:700}
@@ -383,15 +384,11 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
         <span class="dchip"><img src="data:image/webp;base64,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" alt="DERSec"></span>
         <p class="kicker">Project lead</p>
         <h2 id="ds-h">DERSec builds the trust layer that makes Symphony work.</h2>
+      </div>
+      <div class="intro">
         <p>As prime recipient of the CEC award, DERSec leads the partnership and supplies DERStack, the platform every home, business site and utility system connects through.</p>
         <div class="facts"><span>Prime recipient</span><span>Principal Investigator</span><span>IEEE 2030.5 + SunSpec PKI</span><span>DER cybersecurity</span></div>
-      </div>
-      <div class="stack">
-        <h3>DERStack&trade; <small>by DERSec</small></h3>
-        <article><span class="r">Connect</span><h4>DERSync<sup>&trade;</sup></h4><p>IEEE 2030.5 CSIP aggregator in the cloud and edge gateway on site.</p></article>
-        <article><span class="r">Protect</span><h4>DERSec Sentry</h4><p>OT cybersecurity, observability and intrusion detection for every device.</p></article>
-        <article><span class="r">Optimize</span><h4>DERFlow<sup>&trade;</sup></h4><p>Network-aware dispatch driven by hourly flexible prices.</p></article>
-        <article><span class="r">Prove</span><h4>DERSim<sup>&trade;</sup></h4><p>SunSpec-certified IEEE 1547 digital twins, from 100 to 100,000 devices.</p></article>
+        <a class="btn ghost" href="#architecture" style="justify-self:start">See DERStack in the architecture</a>
       </div>
     </div>
   </section>
@@ -517,6 +514,13 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
           <g class="twin"><rect x="790" y="360" width="220" height="80" rx="14"/><text x="810" y="392" class="t">Berkeley Lab</text><text x="810" y="414" class="s">Independent measurement</text></g>
           <path d="M900 360V312" class="lng" marker-end="url(#ahg)"/>
         </svg>
+      </div>
+      <div class="stack" style="margin-top:20px">
+        <h3>DERStack&trade; components <small>by DERSec</small></h3>
+        <article><span class="r">Connect</span><h4>DERSync<sup>&trade;</sup></h4><p>IEEE 2030.5 CSIP aggregator in the cloud and edge gateway on site.</p></article>
+        <article><span class="r">Protect</span><h4>DERSec Sentry</h4><p>OT cybersecurity, observability and intrusion detection for every device.</p></article>
+        <article><span class="r">Optimize</span><h4>DERFlow<sup>&trade;</sup></h4><p>Network-aware dispatch driven by hourly flexible prices.</p></article>
+        <article><span class="r">Prove</span><h4>DERSim<sup>&trade;</sup></h4><p>SunSpec-certified IEEE 1547 digital twins, from 100 to 100,000 devices.</p></article>
       </div>
       <ul class="services" aria-label="Grid services">
         <li>Import and export limits</li><li>Day-ahead capacity</li><li>Hourly prices</li><li>Volt-var and volt-watt</li><li>Fast frequency response</li><li>Voltage within ANSI C84.1</li>
