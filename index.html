@@ -312,6 +312,7 @@ form{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 @media (max-width:560px){.eoi{grid-template-columns:minmax(0,1fr)}}
 form label{position:absolute;left:-9999px}
 input{flex:1 1 220px;min-width:0;font:16px var(--body);padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.8);color:var(--ink)}
+.note{max-width:560px;margin:14px 0 0;font-size:13px;line-height:1.55;color:var(--ink-3)}
 .msg{font-size:13px;color:var(--teal-2);min-height:1.3em;margin-top:8px}
 
 footer{padding-block:28px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
@@ -615,6 +616,7 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
         <p class="sub" style="margin-top:12px">Share your details to express interest.</p>
         <form id="f" class="eoi" novalidate><label for="nm">Full name</label><input id="nm" type="text" placeholder="Full name" autocomplete="name" required><label for="email">Email address</label><input id="email" type="email" placeholder="Email address" autocomplete="email" required><label for="org">Organisation</label><input id="org" type="text" placeholder="Organisation name" autocomplete="organization" required><button class="btn solid" type="submit">Express interest</button></form>
         <p class="msg" id="msg" role="status"></p>
+        <p class="note">Note: Your information will be used solely to follow up on your inquiry about collaborating on this project. We are committed to protecting your privacy and handling your data in compliance with local data protection laws.</p>
       </div>
     </div>
   </section>
