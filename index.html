@@ -727,8 +727,12 @@ html{scroll-padding-top:72px}
   mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu');});
   nv.addEventListener('click',function(e){if(e.target.closest('a')){nv.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.setAttribute('aria-label','Open menu');}});
   var nl=[].slice.call(nv.querySelectorAll('a[href^="#"]:not(.btn)'));
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){nl.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
-    nl.forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t)io.observe(t)});}
+  var secs=nl.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){var y=window.innerHeight*0.4,cur=-1;secs.forEach(function(t,i){if(t&&t.getBoundingClientRect().top<=y)cur=i;});
+    if(cur>-1&&secs[cur].getBoundingClientRect().bottom<0)cur=-1;
+    var jn=document.getElementById('join');if(jn&&jn.getBoundingClientRect().top<=y)cur=-1;
+    nl.forEach(function(a,i){a.classList.toggle('on',i===cur)});}
+  var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){spy();tk=false})}},{passive:true});window.addEventListener('resize',spy);spy();
 
   // Sign-up
   document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nm').value.trim(),v=document.getElementById('email').value.trim(),o=document.getElementById('org').value.trim(),m=document.getElementById('msg');
