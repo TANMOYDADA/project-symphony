@@ -314,6 +314,11 @@ blockquote footer{margin-top:14px;font:500 12px var(--mono);letter-spacing:.08em
 .cmte em{font-style:normal;font-size:14px;color:var(--teal-2)}
 @media (max-width:900px){.join .wrap{grid-template-columns:minmax(0,1fr)}}
 form{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.eoi{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:560px}
+.eoi input{width:100%}
+.eoi #org{grid-column:1/-1}
+.eoi button{grid-column:1/-1;justify-self:start}
+@media (max-width:560px){.eoi{grid-template-columns:minmax(0,1fr)}}
 form label{position:absolute;left:-9999px}
 input{flex:1 1 220px;min-width:0;font:16px var(--body);padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.8);color:var(--ink)}
 .msg{font-size:13px;color:var(--teal-2);min-height:1.3em;margin-top:8px}
@@ -615,10 +620,10 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
   <section id="join" class="join" aria-labelledby="j-h">
     <div class="wrap">
       <div>
-        <p class="kicker">Advisory committees</p>
+        <p class="kicker">Get involved</p>
         <h2 id="j-h" style="margin-top:12px">There's a seat at the table for you.</h2>
-        <p class="sub" style="margin-top:12px">Two committees will guide Project Symphony. Pick one and leave your email to express interest.</p>
-        <form id="f" novalidate><label for="email">Email address</label><input id="email" type="email" placeholder="you@example.org" autocomplete="email"><button class="btn solid" type="submit">Express interest</button></form>
+        <p class="sub" style="margin-top:12px">Share your details to express interest.</p>
+        <form id="f" class="eoi" novalidate><label for="nm">Full name</label><input id="nm" type="text" placeholder="Full name" autocomplete="name" required><label for="email">Email address</label><input id="email" type="email" placeholder="Email address" autocomplete="email" required><label for="org">Organisation</label><input id="org" type="text" placeholder="Organisation name" autocomplete="organization" required><button class="btn solid" type="submit">Express interest</button></form>
         <p class="msg" id="msg" role="status"></p>
       </div>
       <div class="cmte" role="radiogroup" aria-label="Choose a committee">
@@ -722,7 +727,10 @@ footer .by .dchip{padding:4px 8px}footer .by .dchip img{height:13px}
 
   // Sign-up
   var cm='Technical Advisory Committee',cb=[].slice.call(document.querySelectorAll('.cmte button'));
-  cb.forEach(function(b){b.onclick=function(){cb.forEach(function(x){x.setAttribute('aria-checked',x===b)});cm=b.dataset.c;document.getElementById('msg').textContent='';};});
-  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var v=document.getElementById('email').value.trim(),m=document.getElementById('msg');m.textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'Thanks. Interest in the '+cm+' opens at launch; this preview doesn’t store your address yet.':'Enter a full email address, like name@example.org.';});
+  cb.forEach(function(b){b.onclick=function(){cb.forEach(function(x){x.setAttribute('aria-checked',x===b)});cm=b.dataset.c;};});
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nm').value.trim(),v=document.getElementById('email').value.trim(),o=document.getElementById('org').value.trim(),m=document.getElementById('msg');
+    if(!n||!o){m.textContent='Please fill in your name and organisation.';return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){m.textContent='Enter a full email address, like name@example.org.';return}
+    m.textContent='Thanks, '+n.split(' ')[0]+'. We’ll be in touch. (This preview doesn’t store your details yet.)';});
 })();
 </script>
