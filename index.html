@@ -402,7 +402,14 @@ button.btn.ghost{background:transparent;color:var(--ink)}
 .links .btn{color:var(--stage)}
 .links a.btn.on{box-shadow:none;background:var(--teal-2)}
 .opening{padding-top:clamp(36px,5vw,64px);background:radial-gradient(900px 500px at 80% 0%,rgba(74,153,229,.14),transparent 60%),var(--stage)}
-.ohead{display:grid;gap:16px;max-width:900px;margin-bottom:22px}
+.ohead{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start;margin-bottom:26px}
+.ohl,.ohr{display:grid;gap:16px;align-content:start}
+.ohr{padding:clamp(20px,2.4vw,28px);border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.ohr h2{font-size:clamp(20px,1.9vw,26px);line-height:1.2;letter-spacing:-.015em;margin:0}
+.ohr>p:not(.kicker){margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.6}
+.ohr .facts3 div{padding:12px;background:var(--stage);align-content:start}
+.ohr .facts3 b{font-size:24px}
+@media (max-width:900px){.ohead{grid-template-columns:minmax(0,1fr)}}
 .ohead h1,.phero h1{font-size:clamp(34px,4.8vw,60px);font-weight:700;letter-spacing:-.025em;line-height:1.04}
 .lede{color:var(--ink-2);font-size:clamp(16px,1.4vw,19px);max-width:68ch;margin:0}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
@@ -475,10 +482,18 @@ button.btn.ghost{background:transparent;color:var(--ink)}
 <section id="san-leandro" class="opening" aria-labelledby="sl-h">
     <div class="wrap">
       <div class="ohead">
-        <p class="kicker">San Leandro, California</p>
-        <h1 id="sl-h">In San Leandro, a cleaner and more reliable grid is being built street by street.</h1>
-        <p class="lede">Project SYMPHONY is a demonstration funded by the California Energy Commission. Residents, businesses, utilities, researchers and public agencies are working together to show how homes and businesses can support a cleaner, more reliable grid, starting with what matters to the community.</p>
-        <div class="ctas"><button class="btn solid" type="button" data-scroll="gxmap">Explore the map</button><button class="btn ghost" type="button" data-scroll="intro-video">Watch the introduction</button></div>
+        <div class="ohl">
+          <p class="kicker">San Leandro, California</p>
+          <h1 id="sl-h">In San Leandro, a cleaner and more reliable grid is being built street by street.</h1>
+          <p class="lede">Project SYMPHONY is a demonstration funded by the California Energy Commission. Residents, businesses, utilities, researchers and public agencies are working together to show how homes and businesses can support a cleaner, more reliable grid, starting with what matters to the community.</p>
+          <div class="ctas"><button class="btn solid" type="button" data-scroll="gxmap">Explore the map</button><button class="btn ghost" type="button" data-scroll="intro-video">Watch the introduction</button></div>
+        </div>
+        <div class="ohr">
+          <p class="kicker">Why San Leandro</p>
+          <h2 id="why-h">A real community, with real constraints and real opportunities.</h2>
+          <p>San Leandro brings together homes, businesses and industry, strong civic leadership and a grid that is already stretched in many neighborhoods. Some streets have room for new batteries and EV chargers; others don't. Many disadvantaged communities sit right where better coordination could help most. That makes San Leandro the right place to show what is possible.</p>
+          <div class="facts3"><div><b>62%</b><span>of areas constrained today</span></div><div><b>9%</b><span>disadvantaged areas that still have room</span></div><div><b>6</b><span>substations across the city</span></div></div>
+        </div>
       </div>
       <p class="prompt">Explore your city's grid. Tap any area to see where there is room for new clean energy and where the grid is already stretched.</p>
       <div class="gx">
@@ -501,13 +516,6 @@ button.btn.ghost{background:transparent;color:var(--ink)}
           <div class="gxkey"><h3>What the areas show</h3><div id="gxrows"></div></div>
           <div class="gxcard" id="gxcard" aria-live="polite"><span class="k">Area detail</span><p class="muted" style="margin:0">Tap any hexagon on the map to see how much room it has, what limits it, and whether it is a disadvantaged community.</p></div>
                     <p class="gxnote"><b>62%</b> of San Leandro's areas are constrained today. Coordinating homes and businesses behind each substation is how Project SYMPHONY opens room.</p>
-        </div>
-      </div>
-      <div class="two whyin">
-        <div class="head1"><p class="kicker">Why San Leandro</p><h2 id="why-h">A real community, with real constraints and real opportunities.</h2></div>
-        <div>
-          <p class="big">San Leandro brings together homes, businesses and industry, strong civic leadership and a grid that is already stretched in many neighborhoods. Some streets have room for new batteries and EV chargers; others don't. Many disadvantaged communities sit right where better coordination could help most. That makes San Leandro the right place to show what is possible.</p>
-          <div class="facts3"><div><b>62%</b><span>of areas constrained today</span></div><div><b>9%</b><span>disadvantaged areas that still have room</span></div><div><b>6</b><span>substations across the city</span></div></div>
         </div>
       </div>
     </div>
