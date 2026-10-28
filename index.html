@@ -511,6 +511,12 @@ footer{font-size:13px}
 .cfgrid>div{justify-content:center;gap:22px}
 .cfh{gap:14px}
 .ohead{max-width:none}
+/* DERSec trust-layer panel: centred, balanced columns */
+.lead.dsband{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(28px,5vw,72px);padding:clamp(28px,4vw,52px)}
+.lead.dsband .intro{align-content:center;gap:18px}
+.lead.dsband .intro p{text-align:left;hyphens:manual;-webkit-hyphens:manual;color:var(--ink);font-size:17px;line-height:1.65}
+.lead.dsband .intro + .intro{padding-left:clamp(24px,4vw,56px);border-left:1px solid var(--line)}
+@media (max-width:900px){.lead.dsband{grid-template-columns:minmax(0,1fr)}.lead.dsband .intro + .intro{padding-left:0;border-left:0}}
 /* spread headings and sub-headings full width */
 .head{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:14px}
 .head > div:first-child{max-width:none}
