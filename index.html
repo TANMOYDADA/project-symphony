@@ -511,6 +511,12 @@ footer{font-size:13px}
 .cfgrid>div{justify-content:center;gap:22px}
 .cfh{gap:14px}
 .ohead{max-width:none}
+/* spread headings and sub-headings full width */
+.head{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:14px}
+.head > div:first-child{max-width:none}
+.head > :not(:first-child){align-self:flex-start}
+.sub,.lede,.phero .lede{max-width:none}
+h1,h2{max-width:none;text-wrap:pretty}
 .ohead h1{max-width:none}
 h1,.ohead h1,.phero h1,.hero h1,#p-get-involved h1{font-size:clamp(30px,3.4vw,44px);letter-spacing:-.022em;line-height:1.08}
 .ohead .lede{max-width:none}
