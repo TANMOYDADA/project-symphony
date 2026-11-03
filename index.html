@@ -535,6 +535,66 @@ p,.card p,.sub,.lede,.big,dd{text-align:justify;text-justify:inter-word;hyphens:
 .ax-fleet h4{font-size:15px}
 .archx .phase{text-align:center!important;font-size:13.5px;color:var(--ink);margin:0}.phase b{color:var(--teal-2)}
 .ax-row.ax-bottom{margin-top:0}
+
+/* sizing pass: equal heights, site type scale, tighter rhythm */
+.archx{padding:clamp(20px,2.4vw,36px);gap:0}
+.archx h4{font-size:18px;line-height:1.3}
+.archx h5{font-size:15px}
+.archx p{font-size:14.5px;line-height:1.55}
+.ax-row{align-items:stretch}
+.ax-top .ax-card{padding:20px 22px;gap:6px;min-height:150px;align-content:center}
+.alogo.chip{height:38px;margin-bottom:6px}
+.ax-links{min-height:72px}
+.ax-link{font-size:14px;gap:12px}
+.ax-link .lb,.ax-link .proto b{font-size:14px}
+.ax-link .proto small{font-size:13px}
+.aarr{height:40px}
+.ax-plat{grid-template-columns:minmax(0,.75fr) minmax(0,1.35fr) minmax(0,1fr) minmax(0,1.3fr);gap:14px;padding:14px;align-items:stretch}
+.ax-mod{padding:20px 22px;min-height:132px;align-items:center}
+.ax-mod h4{font-size:20px}
+.alogo.csip{width:112px}
+.ax-mod.flow .lb2 .chip{height:32px}
+.ax-mod.flow .lb2{font-size:12.5px}
+.ax-bottom{align-items:stretch}
+.ax-bottom>.ax-caps,.ax-col>.ax-card{min-height:230px;height:100%}
+.ax-col{grid-template-rows:1fr auto}
+.ax-caps{padding:22px 24px;align-content:center}
+.ax-caps li{font-size:14.5px}
+.ax-sim,.ax-fleet{padding:20px 22px;align-content:center}
+.ax-sim .scale{font-size:15px}
+.alogo.dss{width:160px}
+.alogo.fleetlogo{height:40px}
+.ax-fleet h4{font-size:16px}
+.archx .phase{font-size:14px;line-height:1.5;padding-top:4px}
+@media (max-width:980px){.ax-top .ax-card,.ax-mod,.ax-bottom>.ax-caps,.ax-col>.ax-card{min-height:0;height:auto}.ax-col{grid-template-rows:none}}
+/* sizing pass: equal blocks, consistent type */
+.archx h4{font-size:18px}
+.archx p{font-size:14px;line-height:1.5}
+.ax-card{padding:20px 22px;align-content:center;min-height:150px}
+.ax-top{align-items:stretch}
+.ax-plat{grid-template-columns:150px repeat(3,minmax(0,1fr));align-items:stretch;gap:14px;padding:14px}
+.ax-mod{padding:20px 22px;min-height:132px;align-items:center}
+.ax-mod h4{font-size:20px}
+.ax-mod h5{font-size:14.5px;margin-top:4px}
+.ax-mod p{margin-top:6px}
+.alogo.csip{width:96px;height:auto!important;align-self:center;flex:none;object-fit:contain}
+.ax-mod.flow{flex-direction:column;align-items:flex-start;justify-content:center;gap:10px}
+.ax-mod.flow .lb2{flex-direction:row;display:flex;align-items:center;gap:10px;max-width:none;text-align:left}
+.ax-mod.flow .lb2 .chip{height:30px}
+.ax-mod.flow .lb2 span{font-size:12.5px}
+.ax-links{min-height:92px}
+.ax-link,.ax-link .proto b{font-size:14px}.ax-link .proto small{font-size:13px}
+.ax-bottom{align-items:stretch}
+.ax-col{grid-template-rows:1fr auto;gap:12px}
+.ax-col>.ax-card{height:100%;min-height:230px}
+.ax-caps{align-content:start;padding-top:22px}
+.ax-caps li{font-size:14.5px}
+.ax-sim .scale{font-size:15px}
+.ax-fleet{align-content:start}
+.ax-fleet .fl>div{padding:18px 12px;min-height:118px;align-content:center}
+.ax-fleet h4{font-size:16px}
+.archx .phase{font-size:14px;min-height:42px}
+@media (max-width:980px){.ax-plat{grid-template-columns:minmax(0,1fr)}.ax-card,.ax-col>.ax-card{min-height:0}.ph-empty{display:none}.archx .phase{min-height:0}.ax-mod.flow{flex-direction:column}}
 @media (max-width:980px){
   .ax-row,.ax-plat{grid-template-columns:minmax(0,1fr)}
   .ax-links{min-height:0;padding:10px 0;gap:6px}
@@ -880,10 +940,10 @@ h1,.ohead h1,.phero h1,.hero h1,#p-get-involved h1{font-size:clamp(30px,3.4vw,44
     <div class="ax-link"></div>
   </div>
   <div class="ax-row ax-bottom">
-    <div class="ax-card ax-caps"><h4>Demonstration Core Capabilities</h4><ul>
+    <div class="ax-col"><div class="ax-card ax-caps"><h4>Demonstration Core Capabilities</h4><ul>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Distribution-Level Power Quality Services</li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Alleviating Grid Congestion and Infrastructure Constraints</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Multi-Market Participation and Cybersecurity</li></ul></div>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Multi-Market Participation and Cybersecurity</li></ul></div><p class="phase ph-empty" aria-hidden="true">&nbsp;</p></div>
     <div class="ax-col"><div class="ax-card ax-sim"><img class="alogo dss" src="data:image/webp;base64,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" alt="DER Security"><h4>DERSim™ Digital Twins</h4><p>(IEEE 2030.5, SunSpec Modbus and DNP3)</p><span class="pill">SunSpec Certified</span><b class="scale">Scalable from 100 → 10K → 100K Twins</b></div>
       <p class="phase"><b>Phase 1:</b> IEEE 1547 Functional Testing (Baseline Requirements/Metrics)</p></div>
     <div class="ax-col"><div class="ax-card dashed ax-fleet"><span class="pill">DERSync IEEE 2030.5 Network Layer</span>
