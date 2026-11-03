@@ -546,6 +546,32 @@ footer{font-size:13px}
 #sync .vplay:hover .pbtn{background:rgba(255,255,255,.26);transform:scale(1.05)}
 #sync .pbtn{transition:transform .2s,background .2s}
 #sync .video.playing .vplay{display:none}
+/* ---- widescreen ---- */
+.wrap{max-width:1440px;padding-inline:clamp(16px,4vw,64px)}
+@media (min-width:1700px){.wrap{max-width:1560px}body{font-size:17px}h2{font-size:34px}.ohead h1,.phero h1,h1{font-size:48px}}
+@media (min-width:2200px){.wrap{max-width:1760px}}
+/* ---- mobile refinements ---- */
+@media (max-width:760px){
+  p,.card p,.sub,.lede,.big,dd,li{text-align:left!important;hyphens:manual!important;-webkit-hyphens:manual!important}
+  .archbox{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .archbox svg{min-width:760px}
+  .archbox::after,.diagram::after{content:"Swipe to explore the diagram →";display:block;position:sticky;left:0;padding:10px 4px 2px;font-size:12px;color:var(--ink-3)}
+  .diagram{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .diagram svg{min-width:560px}
+  .team article{grid-template-columns:64px minmax(0,1fr);gap:14px;padding:16px}
+  .team .pcol img,.team .pcol .avatar{width:64px;height:64px}
+  .team .li{width:30px;height:30px}
+  #sync .pbtn{width:48px;height:48px}
+  #sync .pbtn svg{width:20px;height:20px}
+  #sync .vplay{padding:14px;gap:12px}
+  #sync .vplay .vtxt b{font-size:16px}
+  #sync .vplay .vtxt span{display:none}
+  .ohead h1,.phero h1,h1{font-size:30px}
+  h2{font-size:25px}
+  .kicker{letter-spacing:.14em;font-size:11px}
+  .ctas .btn{flex:1 1 auto;text-align:center;justify-content:center}
+  .lead.dsband{padding:22px}
+}
 /* spread headings and sub-headings full width */
 .head{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:14px}
 .head > div:first-child{max-width:none}
